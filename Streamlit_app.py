@@ -8,7 +8,18 @@ st.title("Dashboard - Credit Card Transactions")
 
 df = pd.read_csv("./data/sample.csv")
 df.index.rename('Serial No', inplace=True)
-# add this
+
+def score_style(val):
+    '''
+    highlight the cell if the value is greater than or equal to 80
+    '''
+    if val >= 80:
+        return 'background-color: yellow'
+    else:
+        return ''
+
+
+
 gb = GridOptionsBuilder.from_dataframe(df)
 gb.configure_pagination(paginationAutoPageSize=False, paginationPageSize=20)
 
@@ -16,4 +27,4 @@ gb.configure_side_bar()
 gb.configure_default_column(groupable=True, value=True, enableRowGroup=True, aggFunc="sum", editable=True)
 gridOptions = gb.build()
 
-AgGrid(df, gridOptions=gridOptions, enable_enterprise_modules=True)
+AgGrid(df, gridOptions=gridOptions, enable_enterprise_modules=False, 'cellStyle': score_style)
