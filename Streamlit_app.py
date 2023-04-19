@@ -12,7 +12,20 @@ df.index.rename('Serial No', inplace=True)
 gb = GridOptionsBuilder.from_dataframe(df)
 gb.configure_pagination(paginationAutoPageSize=False, paginationPageSize=20)
 
-gb.configure_pagination()
+cellstyle_jscode = JsCode("""
+function(params){
+    if (params.value == '1') {
+        return {
+            'color': 'black', 
+            'backgroundColor': 'orange',
+        }
+    }    
+}
+""")
+
+
+gd.configure_pagination(enabled=True)
+gd.configure_columns(df, cellStyle= cellstyle_jscode)
 gb.configure_side_bar()
 gb.configure_default_column(groupable=True, value=True, enableRowGroup=True, aggFunc="sum", editable=True)
 gridOptions = gb.build()
