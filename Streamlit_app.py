@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 from st_aggrid import AgGrid
 from st_aggrid.grid_options_builder import GridOptionsBuilder
-
+from streamlit_echarts import st_echarts 
 st.set_page_config(page_title="Security & Applications", layout="wide") 
 st.title("Dashboard - Credit Card Transactions")
 
@@ -12,7 +12,7 @@ df.index.rename('Serial No', inplace=True)
 gb = GridOptionsBuilder.from_dataframe(df)
 gb.configure_pagination(paginationAutoPageSize=False, paginationPageSize=20)
 
-cellstyle_jscode = streamlit_echarts.JsCode("""
+cellstyle_jscode = st_echarts.JsCode("""
 function(params){
     if (params.value == '1') {
         return {
