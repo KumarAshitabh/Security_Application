@@ -12,7 +12,7 @@ df.index.rename('Serial No', inplace=True)
 gb = GridOptionsBuilder.from_dataframe(df)
 gb.configure_pagination(paginationAutoPageSize=False, paginationPageSize=20)
 
-cellstyle_jscode = streamlit_echarts.JsCode("""
+cellstyle_jscode = JsCode("""
 function(params){
     if (params.value == '1') {
         return {
