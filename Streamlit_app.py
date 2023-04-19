@@ -38,4 +38,4 @@ AgGrid(df, columnDefs=[
               {'headerName': 'trans_date_trans_time', 'field': 'trans_date_trans_time'},
               {'headerName': 'merch_long', 'field': 'merch_long'},
               {'headerName': 'is_fraud', 'field': 'is_fraud', 'cellStyle': score_style}
-          ])
+          ],allow_unsafe_jscode=True)
