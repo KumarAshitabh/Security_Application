@@ -10,7 +10,7 @@ st.set_page_config(page_title="Security & Applications", layout="wide")
 st.title("Dashboard - Credit Card Transactions")
 
 df = pd.read_csv("./data/sample.csv")
-df.index.rename('Serial No', inplace=True)
+
 # add this
 gb = GridOptionsBuilder.from_dataframe(df)
 gb.configure_pagination(paginationAutoPageSize=False, paginationPageSize=20)
@@ -40,7 +40,7 @@ grid_result = AgGrid(df, gridOptions=gridOptions, enable_enterprise_modules=True
 # add a button to refresh the AgGrid
 if st.button('Refresh'):
     df2 = pd.read_csv("./data/sample.csv")
-    df = pd.concat(df2,ignore_index=True)
+    df.append(df2)
     st.experimental_rerun()
 
 # display the result
