@@ -17,7 +17,7 @@ gb.configure_pagination(paginationAutoPageSize=False, paginationPageSize=20)
 
 cellstyle_jscode = JsCode("""
 function(params){
-    if (params.value == '1') {
+    if (params.data.is_fraud == '1') {
         return {
             'color': 'black', 
             'backgroundColor': 'orange',
