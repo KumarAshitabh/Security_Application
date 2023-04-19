@@ -27,4 +27,8 @@ gb.configure_side_bar()
 gb.configure_default_column(groupable=True, value=True, enableRowGroup=True, aggFunc="sum", editable=True)
 gridOptions = gb.build()
 
-AgGrid(df, gridOptions=gridOptions, enable_enterprise_modules=False, 'cellStyle': score_style)
+AgGrid(df, gridOptions=gridOptions, enable_enterprise_modules=False, columnDefs=[
+              {'headerName': 'trans_date_trans_time', 'field': 'trans_date_trans_time'},
+              {'headerName': 'merch_long', 'field': 'merch_long'},
+              {'headerName': 'is_fraud', 'field': 'is_fraud', 'cellStyle': score_style}
+          ])
