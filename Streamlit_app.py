@@ -20,7 +20,7 @@ function(params){
     if (params.data.is_fraud == '1') {
         return {
             'color': 'black', 
-            'backgroundColor': 'orange',
+            'backgroundColor': 'Red',
         }
     }    
 }
