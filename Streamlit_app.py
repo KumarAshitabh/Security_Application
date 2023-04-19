@@ -34,8 +34,13 @@ gb.configure_default_column(groupable=True, value=True, enableRowGroup=True, agg
 gridOptions = gb.build()
 gridOptions['getRowStyle'] = cellstyle_jscode
 
-AgGrid(df, gridOptions=gridOptions, enable_enterprise_modules=True, allow_unsafe_jscode=True)
+grid_result = AgGrid(df, gridOptions=gridOptions, enable_enterprise_modules=True, allow_unsafe_jscode=True)
 
 
+# add a button to refresh the AgGrid
+if st.button('Refresh AgGrid'):
+    st.experimental_rerun()
 
+# display the result
+st.write('Selected:', grid_result['selected_rows'])
  
