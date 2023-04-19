@@ -9,7 +9,7 @@ from st_aggrid import AgGrid, GridUpdateMode, DataReturnMode, JsCode
 st.set_page_config(page_title="Security & Applications", layout="wide") 
 st.title("Dashboard - Credit Card Transactions")
 
-df = pd.read_csv("./data/sample.csv").head(0)
+df = pd.read_csv("./data/sample.csv").head(5)
 
 # add this
 gb = GridOptionsBuilder.from_dataframe(df)
@@ -40,7 +40,7 @@ grid_result = AgGrid(df, gridOptions=gridOptions, enable_enterprise_modules=True
 # add a button to refresh the AgGrid
 if st.button('Refresh'):
     df = pd.read_csv("./data/sample.csv")
-    df = df.head(10)
+    df = df.head(2)
     df.to_csv('./data/sample.csv', index=False)
     st.experimental_rerun()
 
