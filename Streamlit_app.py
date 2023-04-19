@@ -9,7 +9,7 @@ from st_aggrid import AgGrid, GridUpdateMode, DataReturnMode, JsCode
 st.set_page_config(page_title="Security & Applications", layout="wide") 
 st.title("Dashboard - Credit Card Transactions")
 
-df = pd.read_csv("./data/sample.csv")
+df = pd.read_csv("./data/sample.csv").head(0)
 
 # add this
 gb = GridOptionsBuilder.from_dataframe(df)
