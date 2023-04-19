@@ -40,7 +40,7 @@ grid_result = AgGrid(df, gridOptions=gridOptions, enable_enterprise_modules=True
 # add a button to refresh the AgGrid
 if st.button('Refresh'):
     df = pd.read_csv("./data/sample.csv")
-    df = df.head(2)
+    df = df.head(20)
     df.to_csv('./data/sample.csv', index=False)
     st.experimental_rerun()
 
