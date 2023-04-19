@@ -32,7 +32,7 @@ gb.configure_columns(df)
 gb.configure_side_bar()
 gb.configure_default_column(groupable=True, value=True, enableRowGroup=True, aggFunc="sum", editable=True)
 gridOptions = gb.build()
-gridOptions['getRowStyle'] = jscode
+gridOptions['getRowStyle'] = cellstyle_jscode
 
 AgGrid(df, gridOptions=gridOptions, enable_enterprise_modules=True, allow_unsafe_jscode=True)
 
