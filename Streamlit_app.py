@@ -39,12 +39,10 @@ grid_result = AgGrid(df, gridOptions=gridOptions, enable_enterprise_modules=True
 
 # add a button to refresh the AgGrid
 if st.button('Refresh'):
-    df2 = pd.read_csv("./data/sample.csv")
-    df2 = df2.head(10)
-    gd = GridOptionsBuilder.from_dataframe(df2)
-    gridOptions = gd.build()
-    gridOptions['getRowStyle'] = cellstyle_jscode
-    grid_result = AgGrid(df2, gridOptions=gridOptions, enable_enterprise_modules=True, allow_unsafe_jscode=True,reload_data=True,update_mode=GridUpdateMode.MODEL_CHANGED)
+    df = pd.read_csv("./data/sample.csv")
+    df = df.head(10)
+    df.to_csv('./data/sample.csv', index=False)
+    grid_result = AgGrid(df, gridOptions=gridOptions, enable_enterprise_modules=True, allow_unsafe_jscode=True,reload_data=True)
     st.experimental_rerun()
 
 # display the result
