@@ -9,6 +9,13 @@ st.title("Dashboard - Credit Card Transactions")
 df = pd.read_csv("./data/sample.csv")
 df.index.rename('Serial No', inplace=True)
 
+df = pd.DataFrame({
+    'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+    'Age': [25, 30, 35, 40],
+    'Score': [80, 90, 70, 85]
+})
+
+
 def score_style(val):
     '''
     highlight the cell if the value is greater than or equal to 80
