@@ -42,7 +42,6 @@ if st.button('Refresh'):
     df = pd.read_csv("./data/sample.csv")
     df = df.head(10)
     df.to_csv('./data/sample.csv', index=False)
-    #grid_result = AgGrid(df, gridOptions=gridOptions, enable_enterprise_modules=True, allow_unsafe_jscode=True,reload_data=True,key='trans_num')
     st.experimental_rerun()
 
 # display the result
