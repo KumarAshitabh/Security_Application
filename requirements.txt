@@ -1,3 +1,7 @@
 matplotlib
 streamlit-aggrid
+googledrivedownloader
+streamlit
+seaborn
+confluent-kafka
 
