@@ -5,4 +5,5 @@ seaborn
 confluent-kafka
 telebot
 Telethon
+sklearn
 
