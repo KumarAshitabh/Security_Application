@@ -3,4 +3,6 @@ googledrivedownloader
 streamlit
 seaborn
 confluent-kafka
+telebot
+Telethon
 
