@@ -6,4 +6,4 @@ confluent-kafka
 telebot
 Telethon
 scikit-learn
-
+streamlit-folium

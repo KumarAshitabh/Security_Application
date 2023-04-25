@@ -15,12 +15,12 @@ from datetime import datetime
 import warnings
 
 import subprocess
-
+import folium
+from streamlit_folium import st_folium, folium_static
 
 warnings.filterwarnings("ignore", category=DeprecationWarning) 
-
 st.set_page_config(page_title="Security & Applications", layout="wide") 
-st.title("Dashboard - Credit Card Transactions")
+st.markdown("<h1 style='text-align: center; '>Dashboard - Credit Card Transactions</h1>", unsafe_allow_html=True)
 
 conf = {
         'bootstrap.servers': st.secrets["default"]["bootstrap.servers"],
@@ -33,6 +33,35 @@ conf = {
     }
 
 df = pd.read_csv("./data/sample.csv")
+
+
+#layout
+col1,inter, col2 = st.columns([5,3,15])
+with col1:
+    st.write(" ")
+    #folium map
+    dfmap = df[df.is_fraud == 1]
+    m = folium.Map(location=[dfmap.merch_lat.mean(), dfmap.merch_long.mean()], 
+                 zoom_start=3, control_scale=True)
+
+    #Loop through each row in the dataframe
+    for i,row in dfmap.iterrows():
+        #Setup the content of the popup
+        iframe = folium.IFrame('Merchant:' + str(row["merchant"]))
+    
+        #Initialise the popup using the iframe
+        popup = folium.Popup(iframe, min_width=200, max_width=200)
+    
+        #Add each row to the map
+        folium.Marker(location=[row['merch_lat'],row['merch_long']],
+                  popup = popup, c=row['merchant']).add_to(m)
+
+    st_data = folium_static(m, width=600)
+
+with inter:
+    st.write(" ")
+
+#---------------------------
 
 def download_model():
     gdd.download_file_from_google_drive(file_id='1ThWf_IPAWzdVC3Qeppkm40SIGjPZUkMp',
@@ -64,7 +93,8 @@ gridOptions['getRowStyle'] = cellstyle_jscode
 
 
 def dashboard():
-    grid_result = AgGrid(df, gridOptions=gridOptions, enable_enterprise_modules=True, allow_unsafe_jscode=True,reload_data=True )
+    with col2:
+        grid_result = AgGrid(df, gridOptions=gridOptions, enable_enterprise_modules=True, allow_unsafe_jscode=True,reload_data=True )
 
 
 
