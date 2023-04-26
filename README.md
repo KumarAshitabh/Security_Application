@@ -56,6 +56,13 @@ To get Telegram bot token
 BOT_API_KEY
 
 ## Get Started  
+To debug in local mode
+
+Run the following command in shell 
+```
+/usr/local/bin/streamlit run Streamlit_app.py
+```
+
 Deploy the code using git integration with Streamlit portal 
 
 Push some sample data via Kafka producer
