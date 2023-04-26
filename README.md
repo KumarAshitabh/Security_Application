@@ -66,6 +66,14 @@ Run the following command in shell
 
 Deploy the code using git integration with Streamlit portal 
 
-Push some sample data via Kafka producer
-    
+Update secrets in settings for application using contents of ./streamlit/secrets.toml
+![2023-04-26_082021](https://user-images.githubusercontent.com/89676699/234454548-4f30ba6e-e69c-4beb-889a-f525ec8a7747.png)
+
+
+Now Push some sample data via Kafka producer and see the dashboard for transaction status 
+```
+python3 kafkaproducer.py
+```
+
+![2023-04-26_082706](https://user-images.githubusercontent.com/89676699/234455170-6acee302-1700-4c99-808a-d8918506803c.png)
 
