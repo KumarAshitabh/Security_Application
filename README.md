@@ -62,6 +62,7 @@ Run the following command in shell
 ```
 /usr/local/bin/streamlit run Streamlit_app.py
 ```
+![2023-04-26_081224](https://user-images.githubusercontent.com/89676699/234453635-a7f26151-8792-41a5-95b1-0f4726e4d87b.png)
 
 Deploy the code using git integration with Streamlit portal 
 
